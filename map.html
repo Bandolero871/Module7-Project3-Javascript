@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Project 3 Javascript</title>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css"> <!--changed position of normalize-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wdth,wght@0,75,100..900;1,75,100..900&display=swap" rel="stylesheet">
+   <script type="module" src="map.js"></script>
+  </head>
+  <body>
+  <div class="header"> <!--Class Header contians navbar-->
+    <h1>Welcome to my Maps Page</h1>
+  </div>
+  <div id="navbar"> <!--Navbar section-->
+    <div class="navbar-container">
+      <a href="index.html">Homepage</a>
+      <a href="resume.html">Resume</a>
+      <a href="page3.html">Video Profile</a>
+      <a class="active" href="map.html">Map</a>
+    </div>
+  </div>
+  <div class="map-content">
+  <h2>Google Maps</h2>
+  </div>
+    <div id="map"></div>
+    <script>
+      let map;
+
+      async function initMap() {
+        const position = { lat: 41.882951, lng: -87.630300 };
+
+        // Load libraries AFTER the API has loaded
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 41.882951, lng: -87.630300 },
+        zoom: 15,
+        mapTypeId: "satellite",
+        });
+
+        new AdvancedMarkerElement({
+          map,
+          position,
+          title: "Chicago",
+        });
+        map.setTilt(45);
+        }
+
+      // Expose initMap globally for the callback
+      window.initMap = initMap;
+    </script>
+        <!-- prettier-ignore -->
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&callback=initMap&callback=initMap&v=weekly">
+    </script>
+</body>
+</html>
