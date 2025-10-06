@@ -42,13 +42,13 @@ body {
 /*Navbar buttons hover color change*/
 #navbar a:hover {
   background: linear-gradient(to bottom, #f5f6f6 0%,#dbdce2 21%,#b8bac6 49%,#dddfe3 80%,#f5f6f6 100%); <!--added gradient color-->
-  background: gray;
+  background: lightgray;
   }
 
 /*Navbar buttons hover color change*/
 #navbar a.active {
   background: linear-gradient(45deg, #deedfa 0%,#bcd6f4 22%,#aaccf2 33%,#a0c4f0 50%,#97c0ef 67%,#619ae5 82%,#d3a227 100%); <!--added gradient color-->
-  color: black;
+  color: lightgray;
   border-style: outset ridge;
 }
 
